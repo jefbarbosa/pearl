@@ -19,4 +19,10 @@ public class Jewel {
     private String material;
     private double weight;
     private String weightUnit;
+
+    public Jewel(String material, double weight, String weightUnit) {
+        this.material = material;
+        this.weight = weight;
+        this.weightUnit = weightUnit;
+    }
 }

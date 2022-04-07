@@ -37,4 +37,14 @@ public class JewelService {
         jewelRepository.delete(jewel);
         return "Jewel "+ id + " deleted";
     }
+
+    public Jewel updateJewel(Long id, Jewel jewel) {
+        Jewel jewelFound = searchJewel(id);
+        if (jewelFound.getId() == null) {
+            return new Jewel();
+        }
+        jewel.setId(jewelFound.getId());
+        jewelRepository.save(jewel);
+        return jewel;
+    }
 }

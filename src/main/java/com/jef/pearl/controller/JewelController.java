@@ -18,8 +18,8 @@ public class JewelController {
 
 
     @PostMapping("/inserir")
-    public ResponseEntity<String> insertJewell(@RequestBody Jewel jewel) {
-        return new ResponseEntity<>("Value Id: " + jewelService.insertJewel(jewel), HttpStatus.CREATED);
+    public ResponseEntity<Long> insertJewell(@RequestBody Jewel jewel) {
+        return new ResponseEntity<>(jewelService.insertJewel(jewel), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -30,5 +30,11 @@ public class JewelController {
     @GetMapping("/excluir")
     public ResponseEntity<String> removeJewel(@RequestParam(name = "numero_identificacao") Long id) {
         return new ResponseEntity<>(jewelService.removeJewel(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/atualizar")
+    public ResponseEntity<Jewel> updateJewel(@RequestParam(name = "numero_identificacao") Long id,
+                                              @RequestBody Jewel jewel) {
+        return new ResponseEntity<>(jewelService.updateJewel(id, jewel), HttpStatus.CREATED);
     }
 }
