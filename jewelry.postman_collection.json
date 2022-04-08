@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "a1b3cf1a-5aca-4922-9672-cb937bdf600b",
+		"name": "jewelry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert-jewel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"material\": \"Silver\",\n    \"weight\": 0.150,\n    \"weightUnit\": \"kg\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/joia/inserir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"joia",
+						"inserir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert-customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"John2\",\n    \"cpf\": \"1234456-2\"\n    ,\"jewels\": [\n        {\n            \"material\": \"gold\",\n            \"weight\": 0.150,\n            \"weightUnit\": \"kg\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customer/inserir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"inserir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove-jewel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"material\": \"gold\",\n    \"weight\": 0.150,\n    \"weightUnit\": \"kg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/joia/excluir?numero_identificacao=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"joia",
+						"excluir"
+					],
+					"query": [
+						{
+							"key": "numero_identificacao",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-jewel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"material\": \"gold\",\n    \"weight\": 0.250,\n    \"weightUnit\": \"kg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/joia/atualizar?numero_identificacao=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"joia",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "numero_identificacao",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll-jewels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"material\": \"gold\",\n    \"weight\": 0.150,\n    \"weightUnit\": \"kg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/joia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"joia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-jewels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"material\": \"gold\",\n    \"weight\": 0.150,\n    \"weightUnit\": \"kg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/joia/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"joia",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
