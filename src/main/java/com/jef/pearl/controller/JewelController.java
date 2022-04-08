@@ -1,5 +1,6 @@
 package com.jef.pearl.controller;
 
+import com.jef.pearl.dto.JewelDTO;
 import com.jef.pearl.entity.Jewel;
 import com.jef.pearl.service.JewelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,17 @@ public class JewelController {
         return new ResponseEntity<>(jewelService.insertJewel(jewel), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Jewel>> getAllJewels() {
-        return new ResponseEntity<>(jewelService.getAllJewels(), HttpStatus.OK);
+    /*
+    TODO - Return DTO instead of Entity, because StackOverflow error
+     */
+//    @GetMapping
+//    public ResponseEntity<List<Jewel>> getAllJewels() {
+//        return new ResponseEntity<>(jewelService.getAllJewels(), HttpStatus.OK);
+//    }
+
+    @GetMapping("/{jewelId}")
+    public ResponseEntity<JewelDTO> searchJewel(@PathVariable Long jewelId) {
+        return new ResponseEntity<>(jewelService.searchJewel(jewelId), HttpStatus.OK);
     }
 
     @GetMapping("/excluir")

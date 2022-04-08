@@ -1,9 +1,8 @@
 package com.jef.pearl.service;
 
+import com.jef.pearl.dto.JewelDTO;
 import com.jef.pearl.entity.Jewel;
 import com.jef.pearl.repository.JewelRepository;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,12 +24,17 @@ public class JewelService {
         return jewelRepository.findAll();
     }
 
-    private Jewel searchJewel(Long id) {
+    public JewelDTO searchJewel(Long id) {
+        Jewel jewel = findJewel(id);
+        return JewelDTO.entityToDto(jewel);
+    }
+
+    private Jewel findJewel(Long id) {
         return jewelRepository.findById(id).orElse(new Jewel());
     }
 
     public String removeJewel(Long id) {
-        Jewel jewel = searchJewel(id);
+        Jewel jewel = findJewel(id);
         if (jewel.getId() == null) {
             return "Id not found!";
         }
@@ -39,7 +43,7 @@ public class JewelService {
     }
 
     public Jewel updateJewel(Long id, Jewel jewel) {
-        Jewel jewelFound = searchJewel(id);
+        Jewel jewelFound = findJewel(id);
         if (jewelFound.getId() == null) {
             return new Jewel();
         }

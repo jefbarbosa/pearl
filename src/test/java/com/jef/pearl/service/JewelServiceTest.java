@@ -1,6 +1,7 @@
 package com.jef.pearl.service;
 
 
+import com.jef.pearl.entity.Customer;
 import com.jef.pearl.entity.Jewel;
 import com.jef.pearl.repository.JewelRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,8 +32,9 @@ public class JewelServiceTest {
 
     @Test
     void getAllJewelsTest() {
-        List<Jewel> jewelList = Arrays.asList(new Jewel(1L, "Gold", 0.5, "quilates"),
-                new Jewel(2L,"Silver", 0.32, "kg"));
+        Customer customer = new Customer();
+        List<Jewel> jewelList = Arrays.asList(new Jewel(1L, "Gold", 0.5, "quilates", customer),
+                new Jewel(2L,"Silver", 0.32, "kg", customer));
         Mockito.when(jewelRepository.findAll()).thenReturn(jewelList);
 
         List<Jewel> returnList = jewelService.getAllJewels();
